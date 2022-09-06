@@ -1,0 +1,15 @@
+---
+title: "writings"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [image, date, title, author, reading-time, categories, description]
+page-layout: full
+title-block-banner: true
+---
+
+

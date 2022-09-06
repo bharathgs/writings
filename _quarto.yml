@@ -1,0 +1,24 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "writings"
+  navbar:
+    right:
+      - icon: person-badge-fill
+        href: https://iambharathgs.in/
+      - icon: github
+        href: https://github.com/bharathgs
+      - icon: twitter
+        href: https://twitter.com/iambharathgs
+      - icon: linkedin
+        href: https://www.linkedin.com/in/iambharathgs/
+
+format:
+  html:
+    theme: litera
+    css: styles.css
+
+
+
