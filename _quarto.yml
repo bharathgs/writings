@@ -1,9 +1,8 @@
 project:
   type: website
   output-dir: docs
-
 website:
-  title: "writings"
+  title: "उपक्रमणिका"
   navbar:
     right:
       - icon: person-badge-fill
@@ -14,6 +13,7 @@ website:
         href: https://twitter.com/iambharathgs
       - icon: linkedin
         href: https://www.linkedin.com/in/iambharathgs/
+    background: rgb(242, 239, 231)
 
 format:
   html:

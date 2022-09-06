@@ -8,8 +8,9 @@ listing:
   sort-ui: false
   filter-ui: false
   fields: [image, date, title, author, reading-time, categories, description]
+subtitle: On Systems, Applied ML, NLP & Philosophy.
 page-layout: full
-title-block-banner: true
+title-block-banner: rgb(242, 239, 231)
 ---
 
 
