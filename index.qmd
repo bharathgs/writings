@@ -1,5 +1,5 @@
 ---
-title: "writings"
+title: "उपक्रमणिका"
 listing:
   contents: posts
   sort: "date desc"
@@ -7,10 +7,8 @@ listing:
   categories: numbered
   sort-ui: false
   filter-ui: false
-  fields: [image, date, title, author, reading-time, categories, description]
-subtitle: On Systems, Applied ML, NLP & Philosophy.
+  fields: [image, date, title, author, categories, description]
+subtitle: On Systems, Applied ML/NLP, Products & Indian Philosophy.
 page-layout: full
 title-block-banner: rgb(242, 239, 231)
 ---
-
-

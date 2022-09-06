@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "उपक्रमणिका"
+  title: "writings"
   navbar:
     right:
       - icon: person-badge-fill
@@ -16,15 +16,13 @@ website:
     background: rgb(242, 239, 231)
     pinned: true
     collapse-below: sm
-  reader-mode: true
   search:
     copy-button: true
-
-
 format:
   html:
     theme: litera
     css: styles.css
+    smooth-scroll: true
 
 
 
