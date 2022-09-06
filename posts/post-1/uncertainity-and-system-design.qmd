@@ -3,6 +3,7 @@ title: "On Uncertainity and System design"
 author: "Bharath G.S"
 date: "2022-09-06"
 categories: [system-design, probability]
+draft: true
 ---
 
 This is the first post in a Quarto blog. Welcome!

@@ -1,0 +1,26 @@
+---
+title: "On Building vs Buying"
+author: "Bharath G.S"
+date: "2022-09-06"
+categories: [notes, opinion]
+draft: false
+---
+To build or to buy, a question that often comes up - while quantifying the value of a product!
+
+![](build-buy.jpg)
+
+A simple framework to make this choice boils down to thinking about a two questions and having a clarity on the answer that comes up.
+
+- [ ] *Is this component a __necessary__ aspect of your business?*
+- [ ] *Is this component __strategic__ to your business?*
+
+#### When to Build?
+
+- Build what is both necessary and strategic. 
+- Build what you must do better than anyone else.
+
+#### When to Buy?
+
+- Buy what is necessary and not strategic, ignore everything else.
+- what you believe someone else will compound faster than you can.
+

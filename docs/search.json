@@ -1,16 +1,16 @@
 [
   {
-    "objectID": "posts/post-1/uncertainity-and-system-design.html",
-    "href": "posts/post-1/uncertainity-and-system-design.html",
-    "title": "On Uncertainity and System design",
+    "objectID": "posts/post-2/build-vs-buy.html",
+    "href": "posts/post-2/build-vs-buy.html",
+    "title": "On Building vs Buying",
     "section": "",
-    "text": "Since this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts.\n\n\n\n\nflowchart LR\n  A[Hard edge] --> B(Round edge)\n  B --> C{Decision}\n  C --> D[Result one]\n  C --> E[Result two]\n\n\n\n\n\n\n\n\nSome content goes here.\nlets write some code now and here it goes:\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\n\n\nFigure 1: A line plot on a polar axis"
+    "text": "A simple framework to make this choice boils down to thinking about a two questions and having a clarity on the answer that comes up.\n\n\nIs this component a necessary aspect of your business?\n\nIs this component strategic to your business?\n\n\nWhen to Build?\n\nBuild what is both necessary and strategic.\nBuild what you must do better than anyone else.\n\n\n\nWhen to Buy?\n\nBuy what is necessary and not strategic, ignore everything else.\nwhat you believe someone else will compound faster than you can."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "writings",
     "section": "",
-    "text": "system-design\n\n\nprobability\n\n\n\n\n\n\n\n\n\n\n\nSep 6, 2022\n\n\nBharath G.S\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
+    "text": "notes\n\n\nopinion\n\n\n\n\n\n\n\n\n\n\n\nSep 6, 2022\n\n\nBharath G.S\n\n\n0 min\n\n\n\n\n\n\nNo matching items"
   }
 ]
