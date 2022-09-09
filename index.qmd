@@ -8,7 +8,7 @@ listing:
   sort-ui: false
   filter-ui: false
   fields: [image, date, title, author, categories, description]
-subtitle: On Systems, Applied ML/NLP, Products & Indian Philosophy.
+subtitle: On Software architecture, Building Applied ML/NLP Solutions, Platform thinking, Brewing coffee to भारतीय दर्शन and everything in-between! .
 page-layout: full
 title-block-banner: rgb(242, 239, 231)
 ---
