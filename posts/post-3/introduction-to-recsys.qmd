@@ -1,0 +1,97 @@
+---
+title: "Introduction to recommendations: Part-I"
+subtitle: "The Foundation: A Notes on LTR"
+author: "Bharath G.S"
+date: "2022-10-14"
+categories: [ltr, recsys, optimisation, applied-ml, marketplace, economics, notes]
+draft: false
+comments: false
+# format: 
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     colorlinks: true
+#     documentclass: scrartcl 
+---
+
+Add subline here. 
+
+![](assets/intro.png)
+
+# The Backdrop
+
+It took humans less than a decade to reach a level of sophistication to reach a stage where with less than a couple of keystrokes on a phone one could get the most elaborate meal delivered at home. That’s the magic of the internet revolution. In recent times this trend has only gotten sharper and sharper, with the on-demand delivery space heating up, an Indian consumer can receive anything from an egg to the most lavish dinner faster than it takes to respond to a slack message. 
+
+In fact,  as of 2022 you can get most things delivered under 10 minutes!
+The implication of this is that the customers do not need to plan anything much in advance and that the time between desire, action, and gratification has shrunk to almost zero. One such Hypothetical unicorn startup in this space is Hyper - Which started over two years ago and has seen massive growth in a short period.
+Hyper is known mainly for its super fast, sub-10-minute delivery of almost anything that one can think. However, In the past couple of weeks, the sentiment trends around sub-10-minute style deliveries has been sharply negative due to various factors. Especially concerned around the lack of empathy towards Hyper’s delivery partners. What was once a strength seems to be turning into pain for the company. Many are asking if we have gone too far.
+
+Within this Hypothetical backdrop where Hyper is reevaluating its business strategy, Hyper’s engineering team set’s forth on a journey to contribute towards its initiative of bringing a bit more balance within the marketplace. This marketplace is not overly user-centric but is also fair for other stakeholders like delivery partners.
+Enter recommendation systems, systems that sit at the heart of how most digital marketplaces perform. Most digital economies are shaped by these systems. The scale, convenience, and speed of marketplaces like Hyper are enabled by recommendation systems and search engines. Hence, what these systems optimize for and how they behave are of critical importance. Within a marketplace, multiple factors come into play, and the success of any given marketplace is closely tied to how you match, cater & satisfy the requirements of all the stakeholders like the consumers, suppliers, and more.
+In a series of articles, let’s dive deeper into how these systems are designed, optimized and explore the inner workings and learn how some parts of these systems are built in practice.
+
+But first, let's establish a couple of definitions, terms & concepts.
+
+:::{.callout-caution collapse="true" appearance="minimal"}
+### 🧵 Marketplace, marketplace differentiators & superstar economics
+
+1. __Marketplace__: An intermediary that helps facilitate economic interaction between two or more sets of agents, these have existed since time immemorial as local markets to shopping malls to modern digital experiences like amazon, Flipkart, Swiggy, Instacart, etc - in fact, they are pretty much everywhere. 
+2. __Differentiating factors of a marketplace__: Marketplaces come in various shapes and sizes, but at a high level they can be differentiated based on Need/Customer coverage (horizontal vs vertical), Participant type (b2b vs b2c), Type of offering (service, goods, information, etc). They can also be differentiated based on control and functionality styles (open, closed, focused, censored, etc), management approach (unmanaged, lite, or fully managed) & lastly their transaction regularity (one-off & repeat transactions).
+3. __Superstar economics__: The Phenomenon of superstars, wherein a relatively small number of people earn enormous amounts of money or value of some form and dominate the activities in which they engage.
+
+:::
+
+# Introduction
+
+At the core of any recommendation system, there would be something like a collaborative filtering model (matrix factorization or tensor factorization), latent variable model, neural embeddings-based model, or Neural Collaborative filtering models, and these systems would come in one of these variants - Short vs Long term recommendations, cold start & cohort-based, Multi view and multi-interest models or multi-task recommendations. The most common trend in all these systems usually would be that they all are focused on delivering single user-centric recommendations. These systems were designed to address concerns around user needs, behavior, interests, interactions & personalization. Further, they are measured on user engagement-oriented metrics. 
+
+But, caring only about a single user type, might not yield the most optimal outcome especially when there are many stakeholders involved within a platform - aka recommendation systems within a marketplace-type setting could not be designed with a single entity in mind. This is where the need for a recommendation system that caters to different stakeholders with different sets of interests arises. 
+
+Hence, Recommendations in marketplaces are multi-sided. Equipped to cater not just to a single user's (aka buyer) needs, but also the supplier's needs & most often they also have to consider platform economics within the play. Such a system is usually designed with many objectives in mind - some of these objectives are User expectations, user understanding, supplier exposure, supplier goals, platform objectives, and long-term value. 
+
+Now let's further look into these different stakeholders, their objectives & the interplay between these objectives that usually arise within this ecosystem. 
+
+## Stakeholders, Objectives  & the Objective interplay
+
+In a multi-sided system with multiple objectives often the objectives interact and behave in different manners. At a high level, you could categorize the different types of these interplay as follows: 
+
+- **Correlated** : Optimising for one objective helps the other. 
+- **Neutral**: Optimising for one does not impact the other 
+- **Anti Correlated**: Optimising for one hurts the other 
+
+Consider the example of our Hypothetical on-demand delivery startup Hyper, which is a three-sided marketplace - i.e it has three sets of stakeholders with different motivations & objectives.
+
++---------------+--------------------------+------------------------------+
+| Stakeholder   | Needs/Motivations        | Potential Objectives         |
++===============+==========================+==============================+
+| End User      | Wants to order something | - Quick delivery             |
+|               | from local partner shops.| - Best price                 |
+|               |                          | - Reliable merchants         |
+|               |                          | - Fresh items                |
++---------------+--------------------------+------------------------------+
+| Merchants     | Provide online visibility| - Matching quality           |
+|               | and find customers.      | - Exposure                   |
+|               |                          | - Minimise wastage           |
++---------------+--------------------------+------------------------------+
+| Delivery      | Earn a stable livelihood.| - Regularity in jobs         |
+| Partners      |                          | - Earnings per partner       |
+|               |                          | - Efficient drop location    |
+|               |                          |   planning                   |
++---------------+--------------------------+------------------------------+
+
+As we see above each entity has a unique set of potential objectives one could optimise the recommendation system for & this has to be done in a deliberate and careful way or it might result in undesired outcomes.
+
+:::{.callout-caution collapse="true" appearance="minimal"}
+### 🧵 Superstar economics and towards a fair marketplace 
+
+Researchers from Microsoft & Spotify found out that: 
+
+> Recommendation systems in general suffer from what is called as an inherent problem of "superstar economics": rankings have a top and a tail end, not just for popularity, but also for relevance. In an attempt to maximize user satisfaction, recommender system optimize for relevance. This inadvertently leads to lock-in of popular and relevant suppliers, especially for users who want to minimize the effort required to interact with the system. A major side-effect of the superstar economics is the impedance to suppliers on the tail-end of the spectrum, who struggle to attract consumers, given the low exposure, and thus, are not satisfied with the marketplace. Indeed, to continue to attract more suppliers to the platform, marketplaces face an interesting problem of optimizing their models for supplier exposure, and visibility. Indeed, the suppliers (e.g. retailers, artists) would want a fair opportunity to be presented to the users.
+
+Read more about this in [Towards a Fair Marketplace: Counterfactual Evaluation of the trade-off between Relevance, Fairness & Satisfaction in Recommendation Systems](https://dl.acm.org/doi/10.1145/3269206.3272027)
+
+:::
+
+In short, what a system optimizes for is super important & in general, it needs to look for a balance while optimizing for various objectives. 
+
+Before we proceed further on how to optimize for multiple objectives  let us quickly revisit and see how most modern recommendation systems are built. Also, let's do a quick recap of how one builds a ranking model (aka Learning to rank) & some important metrics used for measuring these systems.
