@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bharath G.S">
+<meta name="dcterms.date" content="2022-10-14">
+
+<title>writings - A Quick Recap on modern recsys</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: rgb(242, 239, 231);
+    }
+    </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">writings</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://iambharathgs.in/"><i class="bi bi-person-badge-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bharathgs"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/iambharathgs"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/iambharathgs/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Quick Recap on modern recsys</h1>
+            <p class="subtitle lead">The Foundation: A Notes on Recsys</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ltr</div>
+                <div class="quarto-category">recsys</div>
+                <div class="quarto-category">optimisation</div>
+                <div class="quarto-category">applied-ml</div>
+                <div class="quarto-category">marketplace</div>
+                <div class="quarto-category">economics</div>
+                <div class="quarto-category">notes</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bharath G.S </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 14, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="a-quick-recap-on-modern-recsys" class="level1">
+<h1>A Quick Recap on modern recsys</h1>
+<p>Add brief inyro about modern system here.</p>
+<p><img src="assets/recsys-wn.png" class="img-fluid"></p>
+<p>Over the past few years, a common and central design pattern has emerged around how most industrial recommendation systems are designed. If one were to summarise this design pattern, it would appear as described in the above figure - consisting of 4 stages. Let us take a brief look at the functionality of these four stages:</p>
+<section id="candidate-retrieval" class="level2">
+<h2 class="anchored" data-anchor-id="candidate-retrieval">Candidate retrieval</h2>
+<p>The Retrieval &amp; filtering stages usually are collectively referred to as candidate generation. A fast but coarse step which narrows down the search space of items from millions of candidates for a given query to something in the order of 100s.</p>
+<p>Often this is achieved by an initial retrieval with some form of matching between the query and the catalog.Usually, via an ANN, Graph-based approach, or some form of a decision tree. Followed by a filtering stage, where invalid candidates are removed from the initial retrieval before passing on to the next stages.</p>
+</section>
+<section id="ranking" class="level2">
+<h2 class="anchored" data-anchor-id="ranking">Ranking</h2>
+<p>At this phase, we further narrow the initial set of items into a much smaller list to be presented to the user. Which is a slow but more precise operation - this stage is usually modeled as an LTR or a classification task. Further, sometimes it’s followed by an ordering stage which handles various business logic to reorder/sort the final list of items. Some common examples of this business logic include: organizing recommendations to fit genre distributions in streaming services or promoting specific segments of sellers as in the case of e-commerce.</p>
+<div class="callout-tip callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+📝 Suggested reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most Production recommendation systems are indeed complex in nature, but the above pattern which was conceptulised at Nvidea by <a href="https://twitter.com/Even_Oldridge"><span class="citation" data-cites="Even_Oldridge">@Even_Oldridge</span></a> &amp; <a href="https://twitter.com/karlhigley"><span class="citation" data-cites="karlhigley">@karlhigley</span></a> sort of provides a good overview of how these systems are designed &amp; to read a bit more on this, refer to <a href="https://medium.com/nvidia-merlin/recommender-systems-not-just-recommender-models-485c161c755e">Recommender Systems not just recommender models</a> article &amp; also read <a href="https://eugeneyan.com/writing/system-design-for-discovery/">system-design-for-discovery</a> from <a href="https://twitter.com/eugeneyan"><span class="citation" data-cites="eugeneyan">@eugeneyan</span></a> where he summarises this design pattern in depth and points to multiple examples from industry that follow this pattern.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="a-quick-recap-on-learning-to-rank" class="level1">
+<h1>A Quick Recap on Learning to Rank</h1>
+<p>Learning to rank (LTR) refers to a class of ML techniques for training a model to solve the task of ranking a set of items. Usually, this is formulated as a supervised or sometimes semi-supervised task.</p>
+<p>Generally, this means we try to learn a function <span class="math inline">\(f(q, D)\)</span> given a query <span class="math inline">\(q\)</span> &amp; a list of documents <span class="math inline">\(D\)</span> to predict the order/rank of the documents within this list. Depending on how the loss function is formulated in the underlying task, any LTR algorithm can be classified into 3 distinct categories:</p>
+<ol type="1">
+<li>Pointwise method</li>
+<li>Pairwise method</li>
+<li>Listwise method</li>
+</ol>
+<section id="ranking-task" class="level2">
+<h2 class="anchored" data-anchor-id="ranking-task">Ranking Task</h2>
+<p>Given a query <span class="math inline">\(q\)</span>, and a set of <span class="math inline">\(n\)</span> documents <span class="math inline">\(D=d_1,d_2,...,dn\)</span>, we’d like to learn a function <span class="math inline">\(f\)</span> such that <span class="math inline">\(f(q, D)\)</span> will predict the relevance of any given document associated with a query.</p>
+</section>
+<section id="pointwise-method" class="level2">
+<h2 class="anchored" data-anchor-id="pointwise-method">Pointwise method</h2>
+<p>In pointwise method, the above ranking task is re-formulated as a standard classification/regression task. The function to be learned <span class="math inline">\(f(q, D)\)</span> is simplified as <span class="math inline">\(f(q, d_i)\)</span> i.e the relevance of each document given a query is scored independently.</p>
+<p>For instance, if we have two queries associated with 2 and 3 resulting matched documents:</p>
+<ol type="1">
+<li><span class="math inline">\(q_1 \to d_1, d_2\)</span></li>
+<li><span class="math inline">\(q_2 \to d_3, d_4, d_5\)</span></li>
+</ol>
+<p>Then the training data <span class="math inline">\(x_i\)</span> in a pointwise method will essentially be every query-document pair as follows:</p>
+<ol type="1">
+<li><span class="math inline">\(x_1 : q_1, d_1\)</span></li>
+<li><span class="math inline">\(x_2 : q_1, d_2\)</span></li>
+<li><span class="math inline">\(x_3 : q_2, d_3\)</span></li>
+<li><span class="math inline">\(x_4 : q_2, d_4\)</span></li>
+<li><span class="math inline">\(x_5 : q_2, d_5\)</span></li>
+</ol>
+<p>Since each document is scored independently with the absolute relevance as the target label, the task is no different from any standard classification or regression task. As such any standard ml algorithms can be leveraged in this setting.</p>
+</section>
+<section id="pairwise-method" class="level2">
+<h2 class="anchored" data-anchor-id="pairwise-method">Pairwise method</h2>
+<p>In pairwise method, the goal is to learn a pointwise scoring function <span class="math inline">\(f(q, d_i)\)</span> similar to a pointwise formulation. However, the key difference arises in how the training data is consructed - where we take pairs of documents within the same query as training samples.</p>
+<ol type="1">
+<li><span class="math inline">\(x_1 \to q_1, (d_1, d_2)\)</span></li>
+<li><span class="math inline">\(x_2 \to q_1, (d_3, d_4)\)</span></li>
+<li><span class="math inline">\(x_3 \to q_1, (d_3, d_5)\)</span></li>
+<li><span class="math inline">\(x_4 \to q_1, (d_4, d_5)\)</span></li>
+</ol>
+<p>In this setting, a new set of pairwise binary labels are derived, by comapring the individual relevance score in each pair. For example, given the first query <span class="math inline">\(q_1\)</span>, if <span class="math inline">\(y_1==\)</span> (i.e.. an irrelevant document) for <span class="math inline">\(d_1\)</span> &amp; <span class="math inline">\(y_2=3\)</span> (i.e.. a Highly relevant document) for <span class="math inline">\(d_2\)</span> then we can create a new label <span class="math inline">\(y_1&lt;y_2\)</span> for the pair of docs <span class="math inline">\((d_1, d_2)\)</span> - by doing so we have essentially converted this back to a binary classification task again.</p>
+<p>Now in order to learn the function <span class="math inline">\(f(q, d_i)\)</span> which is still pointwise, but in a pairwise manner, we model the difference in scores probablistically as follows:</p>
+<p><span class="math display">\[P(i&gt;j) \equiv \frac{1}{1+exp^{-(s_i - s_j)}}\]</span></p>
+<p>i.e, if document <span class="math inline">\(i\)</span> is better matched than document <span class="math inline">\(j\)</span> (denoted as <span class="math inline">\(i&gt;j\)</span>), then the probability of the scoring function to have scored <span class="math inline">\(f(q, d_i) = S_i\)</span> should be close to 1. In other words, the model is trying to learn, given a query, how to score a pair of documents such that a more relevant document would be scored higher.</p>
+</section>
+<section id="listwise-method" class="level2">
+<h2 class="anchored" data-anchor-id="listwise-method">Listwise method</h2>
+<p>Listwise methods, solve the problem of ranking by learning to score the entire list jointly and they do so via two main sub techniques:</p>
+<ul>
+<li>Direct optimization of IR measures such as NDCG.(Eg: SoftRank, AdaRank).</li>
+<li>Minimize a loss function that is defined based on understanding the unique properties of the kind of ranking you are trying to achieve. (E.g. ListNet, ListMLE).</li>
+</ul>
+<p>Let’s do a quick review of one of these approaches:</p>
+<p>Consider ListNet, Which is based on the concept of permutation probability of a list of items. In this case we assume there is a pointwise scoring function <span class="math inline">\(f(q,di)\)</span> used to score and rank a given list of items. But instead of modeling the probability as a pairwise comparison using scoring difference, we model the probability of the entire list of results. In this setting our documents and query dataset would appear like this:</p>
+<ol type="1">
+<li><span class="math inline">\(x_1 : q_1, (d_1, d_2)\)</span></li>
+<li><span class="math inline">\(x_2 : q_2, (d_3, d_4, d_5)\)</span></li>
+</ol>
+<p>First let’s look at the Permutation probability. Let’s denote <span class="math inline">\(π\)</span> as a specific permutation of a given list of length <span class="math inline">\(n\)</span>, <span class="math inline">\(\Theta (s_i) = f(q, d_i)\)</span> as any increasing function of scoring <span class="math inline">\(s_i\)</span> given a query <span class="math inline">\(q\)</span> and a document <span class="math inline">\(i\)</span>. The probability of having a permutation <span class="math inline">\(π\)</span> can be written as follows:</p>
+<p><span class="math display">\[P(\pi) = \prod_{i=1}^n \frac{\phi(s_i)}{\sum_{k=i}^n\phi(s_k)}\]</span></p>
+<p>To illustrate consider a list of 3 items, then the probability of returning the permutation <span class="math inline">\(s_1\)</span>,<span class="math inline">\(s_2\)</span>,<span class="math inline">\(s_3\)</span> is calculated as follows:</p>
+<p><span class="math display">\[P(\pi = \{s_1, s_2, s_3\}) = \frac{\phi(s_1)}{\phi(s_1) + \phi(s_2) + \phi(s_3)} \cdot \frac{\phi(s_2)}{\phi(s_2) + \phi(s_3)} \cdot \frac{\phi(s_3)}{\phi(s_3)}\]</span></p>
+<p>Due to computational complexity, ListNet simplies the problem by looking at only the top-one probability of a given item. The top-one probability of object i equals the sum of the permutation probabilities of permutations in which object i is ranked on the top. Indeed, the top-one probability of object i can be written as:</p>
+<p><span class="math display">\[P(i) = \frac{\phi(s_i)}{\sum_{k=1}^n \phi(s_k)}\]</span></p>
+<p>Given any two list of items represented by top-one probabilities, we can now measure the difference between them using cross entropy. Then we can use an ml algorithm which minimises that cross entropy. The choice of function <span class="math inline">\(ϕ(⋅)\)</span>, can be as simple as just an exponential function. When <span class="math inline">\(ϕ(⋅)\)</span> is expotential and the list length is two, the solution basically reduces to a pairwise method as described earlier.</p>
+<p>With that brief introduction out of the way, let’s also quickly look at the advantages and disadvantages of each of these approaches:</p>
+<table class="table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 29%">
+<col style="width: 63%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td rowspan="2"><h1 id="method">Method</h1>
+<p>Pointwise</p></td>
+<td rowspan="2"><h1 id="advantages">Advantages</h1>
+<ul>
+<li>Simplicity, Any standard ML models can be applied without any changes.</li>
+</ul></td>
+<td rowspan="2">Disadvantages | ====================================+ - The results can be often sub-optimal due to not utilizing the full information of the | entire list of matching documents for each query.| - This requires explicit labels while constructing the dataset, and can be quite expensive.</td>
+</tr>
+<tr class="even">
+</tr>
+<tr class="odd">
+<td>Pairwise</td>
+<td><ul>
+<li>We don’t need explicit labels, Only pairwise preferences are required.</li>
+<li>The model learns how to rank directly, even though its a pairwise setting, but in theory it can approximate the performance of a general ranking task.</li>
+</ul></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Listwise</td>
+<td><ul>
+<li>Theoretically this is a good solution for a ranking task.</li>
+</ul></td>
+<td><ul>
+<li>Costly to compute in its theoretical form and | hence several approximations are used in practice.|</li>
+<li>Scoring function is still pointwise, | which could be sub-optimal. |</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
