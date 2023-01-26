@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bharath G.S">
+<meta name="dcterms.date" content="2022-10-14">
+
+<title>writings - A Quick Recap on Ranking Evaluation metrics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: rgb(242, 239, 231);
+    }
+    </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">writings</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://iambharathgs.in/"><i class="bi bi-person-badge-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bharathgs"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/iambharathgs"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/iambharathgs/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A Quick Recap on Ranking Evaluation metrics</h1>
+            <p class="subtitle lead">The Foundation: A Notes on Ranking Evaluation</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ltr</div>
+                <div class="quarto-category">recsys</div>
+                <div class="quarto-category">optimisation</div>
+                <div class="quarto-category">applied-ml</div>
+                <div class="quarto-category">marketplace</div>
+                <div class="quarto-category">economics</div>
+                <div class="quarto-category">notes</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bharath G.S </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 14, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="a-quick-recap-on-ranking-evaluation-metrics" class="level1">
+<h1>A Quick Recap on Ranking Evaluation metrics</h1>
+<p>Over the years, Several metrics have been proposed and widely used for evaluating a ranking model. If we were to summarise them and list the most popular metrics it boils down to this:</p>
+<table class="table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 63%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Metric Type</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Binary Relevance</td>
+<td>Mean Average Precision (MAP)</td>
+</tr>
+<tr class="even">
+<td>Binary Relevance</td>
+<td>Mean Reciprocal Rank (MRR)</td>
+</tr>
+<tr class="odd">
+<td>Graded Relevance</td>
+<td>Normalized Discounted Cumulative Gain (NDCG)</td>
+</tr>
+<tr class="even">
+<td>Graded Relevance</td>
+<td>Expected Reciprocal Rank (ERR)</td>
+</tr>
+</tbody>
+</table>
+<p>In general, binary metrics only consider relevant &amp; irrelevant items, while graded metrics consider the ranking among relevant items. The degree of relevancy matters in this case when scoring a list of items.</p>
+<section id="mean-average-precision-map" class="level2">
+<h2 class="anchored" data-anchor-id="mean-average-precision-map">Mean Average Precision (MAP)</h2>
+<p>MAP is a measure based on binary label of relevancy. To compute this first we define precision at k for a given query <span class="math inline">\(P@k(q)\)</span> as: <span class="math display">\[P@k(q) \equiv \frac{\sum_{i=1}^k r_i}{k}\]</span> for an ordered list of prediction <span class="math inline">\(r_i\)</span> for all <span class="math inline">\(k\)</span> items. <span class="math inline">\(ri=1\)</span> if it is relevant and 0 otherwise.Then we define the average precision given a query <span class="math inline">\(AP(q)\)</span> at <span class="math inline">\(k\)</span> items as: <span class="math display">\[AP(q)@k \equiv \frac{1}{\sum_{i=1}^k r_i} \sum_{i=1}^k P@i(q) \times r_i\]</span></p>
+<p>Mean Average Precision is just the mean of <span class="math inline">\(AP(q)\)</span> for all queries:</p>
+<p><span class="math display">\[MAP \equiv \frac{\sum_{q=1}^Q AP(q)}{Q}\]</span></p>
+<p>Also, MAP is an order sensitive metric because of the term <span class="math inline">\(r_i\)</span> in the calculation of AP. It is essentially taking the average of precision at each ranking position and penalizing the precision at positions with irrelevant item by strcitly setting them to zeroes.</p>
+<p>Here is a simple example for computing MAP:</p>
+<p><img src="assets/map.jpeg" class="img-fluid"></p>
+</section>
+<section id="mean-reciprocal-rank-mrr-expected-reciprocal-rank-err" class="level2">
+<h2 class="anchored" data-anchor-id="mean-reciprocal-rank-mrr-expected-reciprocal-rank-err">Mean Reciprocal Rank (MRR) &amp; Expected Reciprocal Rank (ERR)</h2>
+<p>Reciprocal rank metrics focus mainly on the first correctly predicted relevant item in a list. Given a list of items, and say <span class="math inline">\(r_i\)</span> is the rank of the highest ranking relevant item &amp; if the the 2nd item is the first relevant item in the list, then the reciprocal rank for this query would be <span class="math inline">\(\frac{1}{2}\)</span>. By extension, each query will have a reciprocal rank. Hence, Mean reciprocal rank is essentially the average of reciprocal rank for all the queries, which would be represented as follows:</p>
+<p><span class="math display">\[MRR \equiv \frac{1}{Q} \sum_{i=1}^Q\frac{1}{r_i}\]</span></p>
+<p>Expected reciprocal rank tries to quantify how useful a document at rank <span class="math inline">\(i\)</span> conditioned on the degree of relevance of documents at rank less than <span class="math inline">\(i\)</span> are. The intution behind this is based on the empirical findings from web search task, that the likelihood a user will examine the document at rank <span class="math inline">\(i\)</span> is dependent on how satisfied the user was with previously observed documents in the list.</p>
+<p>Lets assume the probability of a user finding the result is satisfied at position <span class="math inline">\(i\)</span> in a list of items is denoted as <span class="math inline">\(R_i\)</span> &amp; the likelihood of a session for which the user is satisfied and stops at position <span class="math inline">\(r\)</span> is: <span class="math display">\[\prod_{i=1}^{r-1}(1 - R_i)R_r\]</span></p>
+<p>Now we can model <span class="math inline">\(R_i\)</span> such that it is an increasing function of relevance:</p>
+<p><span class="math display">\[R = R(g) \equiv \frac{2^g - 1}{2^{g_{max}}}\]</span></p>
+<p>where <span class="math inline">\(g\)</span> is the graded relevance such that <span class="math inline">\(g \in \{0, 1, ..., g_{max}\}\)</span> &amp; <span class="math inline">\(g = 0\)</span> implies an irrelevant document and <span class="math inline">\(g = g_{max}\)</span> implies a relevant document.</p>
+<p>Now we can define ERR as follows:</p>
+<p><span class="math display">\[ERR \equiv \sum_{r=1}^n\frac{1}{r}R_r\prod_{i=1}^{r-1}(1-R_i)\]</span></p>
+<p>Here <span class="math inline">\(\frac{1}{r}\)</span> is treated as a utility function <span class="math inline">\(\tau(r)\)</span> that satisfies <span class="math inline">\(\tau(1) = 1\)</span> and <span class="math inline">\(\tau(r) \rightarrow 0\)</span> as <span class="math inline">\(r \rightarrow \infty\)</span>.</p>
+<p>Note that ERR is a metric on a list with a single query, To evaluate results from multiple queries, we will need to further average ERRs among queries.</p>
+<p>Here is a simple example for computing MRR:</p>
+<p><img src="assets/mrr.jpeg" class="img-fluid"></p>
+</section>
+<section id="normalized-discounted-cumulative-gain-ndcg" class="level2">
+<h2 class="anchored" data-anchor-id="normalized-discounted-cumulative-gain-ndcg">Normalized Discounted Cumulative Gain (NDCG)</h2>
+<p>Normalized Discounted Cumulative Gain (NDCG) is one of the most popular metric for measuring the quality of a set of ranked items in search or recommendations. If we were to break the assumptions made by this metric in simple terms, it would be as follows:</p>
+<ol type="1">
+<li>Cumulative Gain: Very relevant items are more useful than somewhat relevant items which are more useful than completely irrelevant items.</li>
+<li>Discounting: Relevant items are more useful when they appear earlier in a list of ranked items.</li>
+<li>Normalization: The ranking results should be irrelevant to the query performed.</li>
+</ol>
+<p>Let’s define Discounted Cumulative Gain at position <span class="math inline">\(k\)</span> as follows:</p>
+<p><span class="math display">\[DCG@k \equiv \sum_{i=1}^k\frac{2^{l_i} - 1}{log_2(i + 1)}\]</span></p>
+<p>where <span class="math inline">\(l_i\)</span> is the grading of relevance at rank <span class="math inline">\(i\)</span>. Intutively, the numerator is simply an increasing function of relevance, the more relevant the higher. This is the <em>gain</em> from each item. The denominator is a decreasing function of ranking position, this is the <em>discounted</em> component of the metric. Collectively, higher relevance gains more score, but the lower it is ranked the higher also the discount. Essentially, the metric will prefer higher relevant item to be ranked higher, which is the desired outcome.</p>
+<p>NDCG is then defined as:</p>
+<p><span class="math display">\[NDCG@k = \frac{DCG@k}{IDCG@k}\]</span></p>
+<p>where <span class="math inline">\(IDCG@k\)</span> is the <em>Ideal</em> DCG@k given the result. DCG@k is calculated by sorting the given list of items by its true relevance labels. and IDCG@k is the maximum possible DCG@K value one can get given a ranked list of items.</p>
+<p>Here is a simple example for computing NDCG:</p>
+<p><img src="assets/ndcg.jpeg" class="img-fluid"></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
