@@ -2,6 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/post-8/applied_method.html",
+      "/posts/post-6/ltr.html",
+      "/posts/post-7/popular_method.html",
+      "/posts/post-5/ranking-evalution.html",
+      "/posts/post-4/quick-recsys-recap.html",
+      "/posts/post-3/introduction-to-recsys.html",
       "/posts/post-2/build-vs-buy.html"
     ]
   }
