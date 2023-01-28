@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Bharath G.S">
+<meta name="dcterms.date" content="2022-10-14">
+
+<title>writings - Popular methods applied to LTR Setting</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": true,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<style>
+    .quarto-title-block .quarto-title-banner {
+      background: rgb(242, 239, 231);
+    }
+    </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">writings</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://iambharathgs.in/"><i class="bi bi-person-badge-fill" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bharathgs"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/iambharathgs"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/iambharathgs/"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Popular methods applied to LTR Setting</h1>
+            <p class="subtitle lead">The Foundation: A Notes on LTR</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ltr</div>
+                <div class="quarto-category">recsys</div>
+                <div class="quarto-category">optimisation</div>
+                <div class="quarto-category">applied-ml</div>
+                <div class="quarto-category">marketplace</div>
+                <div class="quarto-category">economics</div>
+                <div class="quarto-category">notes</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Bharath G.S </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 14, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="few-examples-in-the-wild" class="level2">
+<h2 class="anchored" data-anchor-id="few-examples-in-the-wild">Few Examples in the Wild</h2>
+<section id="a-multi-objective-learning-to-re-rank-approach-to-optimize-online-marketplaces-for-multiple-stakeholders." class="level3">
+<h3 class="anchored" data-anchor-id="a-multi-objective-learning-to-re-rank-approach-to-optimize-online-marketplaces-for-multiple-stakeholders.">A Multi-Objective Learning to Re-Rank Approach to Optimize Online Marketplaces for Multiple Stakeholders.</h3>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Read the Original Paper over here: <a href="https://arxiv.org/pdf/1708.00651.pdf">Original Paper</a></p>
+</div>
+</div>
+</div>
+<p>First, let’s look at an example from Expedia. Being a service provider they are trying to optimize for the following objectives:</p>
+<ol type="1">
+<li>Consumer’s Conversion Rate or Click Through Rate.</li>
+<li>Maximum transaction commission from the supplier.</li>
+</ol>
+<p>A supplier pays a marginal amount of the sales transaction as a commission to the platform. Let’s say the product’s cost is <span class="math inline">\(c\)</span> and the selling price is <span class="math inline">\(p\)</span> then the margin is <span class="math inline">\(m = p-c\)</span>.</p>
+<p>To achieve the above objectives, the optimization function is defined as follows:</p>
+<p><span class="math display">\[\max_{\alpha, \beta}L(m|u) = \sum_{i=1}^n \log(u_i) + \alpha \log(p_i) + \beta \log(\frac{m_i}{p_i})\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are tuning parameters.</p>
+<p><span class="math inline">\(\log(u_i)\)</span> = User possibility to do transaction.</p>
+<p><span class="math inline">\(\log(p_i)\)</span> = supplier interest for selling the product at price <span class="math inline">\(p\)</span>.</p>
+<p><span class="math inline">\(\log(m/p)\)</span> = profit margin define as percentage here.</p>
+<p>In these objective functions, we have contradictory relations with suppliers and consumers by nature. On the other side, service providers want higher commission benefits from suppliers at an indirect cost to consumers. For such problems, there is no unique Pareto optimal solution because of the complex and opposing interactions of the different stakeholder interests.</p>
+<p>Here they give priority to promoting items to higher positions that better satisfy a transaction commission objective while staying as close as possible to the original ranking. The new ranking score function looks like the below:</p>
+<p><span class="math display">\[ \forall_u \in u, u^{′} = u + \alpha\log(p) + \beta(x,m)\log(\frac{m}{p})\]</span></p>
+<p>To reduce the distance between the new vs old score vectors, they use the <a href="https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient">Kendall tau</a> correlation measure. The updated objective function looks like the below:</p>
+<p><span class="math display">\[\min_{\alpha, \beta}L(m|u, X) = L_r(\frac{m}{X}) + \gamma(1 - K^{'}(u, u^{′})) \]</span></p>
+<p>Here, <span class="math inline">\(K^{'}(u, u^{'})\)</span> is playing the role of a similarity-based regularizer with the original ranking order u being the reference point to the new ranking order <span class="math inline">\(u^{′}\)</span>. The hyperparameter <span class="math inline">\(\gamma\)</span> gives the balance between our objective function.</p>
+<p>To evaluate the LTR method, they use an in-house Expedia dataset built from worldwide hotel searches collected during 2016. The new ranking methods give a lift of +16.7% on the NDCG of margin, but at the same time, this incurs a decrease of -5.9% in terms of the NDCG of customer preferences.</p>
+<p>The paper also uses the following formula to calculate the risk and reward to further evaluate the new objective function:</p>
+<p><span class="math display">\[ Risk = \frac{1}{|q|} \sum_q NDCG@10(LRR) &lt; NDCG@10(Baseline)\]</span> <span class="math display">\[ Reward = \frac{1}{|q|} \sum_q NDCG@10(LRR) &gt; NDCG@10(Baseline)\]</span></p>
+<p>They have found that the risk is lower than the baseline and the reward much higher.</p>
+<p>This experiment shows that multi-objective is always a trade-off between the two objectives: Conversion rate vs Margin. They would like to further test with real-world performance via <span class="math inline">\(A/B\)</span> testing.</p>
+</section>
+<section id="joint-optimization-of-profit-and-relevance-for-recommendation-systems-in-e-commerce" class="level3">
+<h3 class="anchored" data-anchor-id="joint-optimization-of-profit-and-relevance-for-recommendation-systems-in-e-commerce">Joint Optimization of Profit and Relevance for Recommendation Systems in E-commerce</h3>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Read the Original Paper over here: <a href="http://ceur-ws.org/Vol-2440/short1.pdf">Original Paper</a></p>
+</div>
+</div>
+</div>
+<p>Traditionally, e-commerce-based recommendation systems focus on optimizing for relevance by predicting the purchase or click probability of an item. The relevance-centric approach is capable to increased the conversion rate but does not guarantee a maximum profit for either a platform or seller. In this paper from Etsy, where they discussed a novel revenue model, which optimizes for two objectives:</p>
+<ol type="1">
+<li>Maximising the Revenue</li>
+<li>The probability of the purchase.</li>
+</ol>
+<p>To maximize the likelihood, the objective function is defined as follows:</p>
+<p><span class="math display">\[\max_{w \in R^n, b \in R} l(w,b) := - \sum_{i=1}^{m} \log(1 + exp(-y_i(w^T x_i + b)))\]</span></p>
+<p>Here, <span class="math inline">\(x_i\)</span> = <span class="math inline">\(i^{th}\)</span> training sample <span class="math inline">\(x_i \in R^n\)</span> <span class="math inline">\(y_i\)</span> = label whether a recommended item is purchased or not</p>
+<p>Let’s say <span class="math inline">\(\pi_i\)</span> is the price of item, then the objective function for maximizing profit is as below:</p>
+<p><span class="math display">\[ρ(w,b) := \sum_{i=1}^{m} E[\pi_i, y_i] = \sum_{i=1}^{m} \pi_i (2prob[y_i = 1|x_i;w] - 1)\]</span> <span class="math display">\[= \sum_{i=1}^{m} 2\pi_i\sigma(w^T x_i + b) - \pi_i,\]</span></p>
+<p>The combined objective function will be:</p>
+<p><span class="math display">\[\max_{w\in R^n, b\in R } l(w,b) + \mu ρ(w,b)\]</span></p>
+<p>To optimise the above objective, <span class="math inline">\((w,b)\)</span> parameters need to be found which can fit <span class="math inline">\(l(w,b)\)</span> to maximise the likelihood while maximizing the expected revenue (via <span class="math inline">\(ρ(w, b)\)</span>). Here, <span class="math inline">\(\mu ≥ 0\)</span> is a hyperparameter of the model that controls the tradeoff between the two objectives. Once the optimal parameters are learned, they use them to rank a set of candidate items.</p>
+<p>They have used the following metrics to evaluate the performance of the proposed model</p>
+<ol type="1">
+<li>Profit@K: profit generate by kth highest ranked item</li>
+<li>Average price: Average price of the k highest ranked item</li>
+<li>AUC: to measure relevance</li>
+<li>NDCG@5</li>
+</ol>
+<p>Etsy has done an offline evaluation of the proposed model. They found the proposed revenue model attains the highest AUC and profit@k for all K values. Note they used K value up to 3. They observe that the revenue model has a 3.57% increase in AUC and 9.50% in profit@1 compared to the baseline model. Also increases P-NDCG@k and AP@k for all k by at least 3.57% and 23.08% However, the proposed model results in a 10.76% and 16.06% decrease in AUC compared to the baseline.</p>
+<p>The overall revenue model can increase profit for the platform while retaining high relevancy for users. They would like to assess revenue model performance in the face of real user traffic via an online A/B experiment.</p>
+</section>
+<section id="using-bayesian-optimization-for-balancing-metrics-in-recommendation-systems" class="level3">
+<h3 class="anchored" data-anchor-id="using-bayesian-optimization-for-balancing-metrics-in-recommendation-systems">Using Bayesian optimization for balancing metrics in recommendation systems</h3>
+<div class="callout-tip callout callout-style-simple no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Read the Original article over here: <a href="https://engineering.linkedin.com/blog/2022/using-bayesian-optimization-for-balancing-metrics-in-recommendat">Original Article</a></p>
+</div>
+</div>
+</div>
+<p>Let’s now look into an article from Linkedin where they describe their approach towards building their notifications recommendation system, which notifies members about various activities within their network. To build an efficient notification system, they are optimizing for the following objects:</p>
+<ol type="1">
+<li>CTR</li>
+<li>Number of sessions (i.e the user visits &amp; app open rate)</li>
+</ol>
+<p>The CTR and session objectives can be conflicting, because sending more notifications to members may lead them to visit an app frequently. And It increases the overall number of sessions but on the other side, it can decrease CTR because of the quality of the notification.</p>
+<p>The overall objective function they define is as follows:</p>
+<p><span class="math display">\[p_{click} + \alpha * \Delta p_{visit} &gt; \gamma\]</span></p>
+<p>where,</p>
+<ol type="1">
+<li><span class="math inline">\(p_{click}\)</span> is the probability of click by member</li>
+<li><span class="math inline">\(\Delta p_{visit}\)</span> can be defined as <span class="math inline">\(p(\frac{visit}{sent})\)</span> - <span class="math inline">\(p(\frac{visit}{not sent})\)</span>. Which is basically the difference between sending a notification now vs not sending a notification.</li>
+<li><span class="math inline">\(\alpha\)</span> is the hyperparameter that measures the relative importance of the two utilities.</li>
+<li><span class="math inline">\(\gamma\)</span> is the threshold applied.</li>
+</ol>
+<p>Finding an optimal value of <span class="math inline">\(x=\{\alpha,\gamma\}\)</span> can maximize the sessions without compromising on CTR and send volume. To ensure the overall performance, they used <span class="math inline">\(c1\)</span> and <span class="math inline">\(c2\)</span> constraints as contained for CTR(x), and Send Volume(x).</p>
+<p>The updated objective function looks like the below:</p>
+<p><span class="math display">\[ \max_{\forall x_i} , f_{session}(x)\]</span> Such that, <span class="math display">\[f_{CTR}(x) &gt; c_1, f_{sentVolume} (x) &lt; c_2\]</span></p>
+<p>Using the above constraints, they define a single objective function as below:</p>
+<p><span class="math display">\[\max_x f(x) = f_{session}(x) + \lambda(1 \{f_{CTR}(x) &gt; c_1 \} + 1\{f_{sentVolume(x)} &lt; c_2\}),\]</span></p>
+<p>By converting a MOO into SOO using constrained-based optimization, they learn global hyperparameters (i.e., a single value) for all members. Further, they evaluate and improve upon this via online A/B experiments.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>In this rather long post, we looked into common design patterns for building modern recommendation systems, Common styles of training ranking models &amp; Popular metrics for evaluating these systems and also looked at the task of multiple objective optimizations and their application within Learning to rank. We also looked at a few examples of multi-objective ranking from the industry - and one common trend that we observed is that simple techniques like label aggregation, model aggregation, or constrained optimization work surprisingly well in practice.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

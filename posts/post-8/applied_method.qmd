@@ -1,0 +1,152 @@
+---
+title: "Popular methods applied to LTR Setting"
+subtitle: "The Foundation: A Notes on LTR"
+author: "Bharath G.S"
+date: "2022-10-14"
+categories: [ltr, recsys, optimisation, applied-ml, marketplace, economics, notes]
+draft: false
+comments: false
+# format: 
+#   pdf:
+#     toc: true
+#     number-sections: true
+#     colorlinks: true
+#     documentclass: scrartcl 
+---
+
+## Few Examples in the Wild
+
+### A Multi-Objective Learning to Re-Rank Approach to Optimize Online Marketplaces for Multiple Stakeholders.
+
+:::{.callout-tip appearance="minimal"}
+
+Read the Original Paper over here: [Original Paper](https://arxiv.org/pdf/1708.00651.pdf)
+
+::: 
+
+First, let’s look at an example from Expedia. Being a service provider they are trying to optimize for the following objectives: 
+
+1. Consumer’s Conversion Rate or Click Through Rate.
+2. Maximum transaction commission from the supplier.
+
+A supplier pays a marginal amount of the sales transaction as a commission to the platform. Let’s say the product’s cost is $c$ and the selling price is $p$ then the margin is $m = p-c$.
+
+To achieve the above objectives, the optimization function is defined as follows:
+
+$$\max_{\alpha, \beta}L(m|u) = \sum_{i=1}^n \log(u_i) + \alpha \log(p_i) + \beta \log(\frac{m_i}{p_i})$$
+
+where $\alpha$ and $\beta$ are tuning parameters.
+
+$\log(u_i)$ = User possibility to do transaction.
+
+$\log(p_i)$ = supplier interest for selling the product at price $p$.
+
+$\log(m/p)$ = profit margin define as percentage here.
+
+In these objective functions, we have contradictory relations with suppliers and consumers by nature. On the other side, service providers want higher commission benefits from suppliers at an indirect cost to consumers. For such problems, there is no unique Pareto optimal solution because of the complex and opposing interactions of the different stakeholder interests.
+
+Here they give priority to promoting items to higher positions that better satisfy a transaction commission objective while staying as close as possible to the original ranking. The new ranking score function looks like the below:
+
+$$ \forall_u \in u, u^{′} = u + \alpha\log(p) + \beta(x,m)\log(\frac{m}{p})$$
+
+To reduce the distance between the new vs old score vectors, they use the [Kendall tau](https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient) correlation measure. The updated objective function looks like the below:
+
+$$\min_{\alpha, \beta}L(m|u, X) = L_r(\frac{m}{X}) + \gamma(1 - K^{'}(u, u^{′})) $$
+
+Here, $K^{'}(u, u^{'})$ is playing the role of a similarity-based regularizer with the original ranking order u being the reference point to the new ranking order $u^{′}$. The hyperparameter $\gamma$ gives the balance between our objective function.
+
+To evaluate the LTR method, they use an in-house Expedia dataset built from worldwide hotel searches collected during 2016. The new ranking methods give a lift of +16.7% on the NDCG of margin, but at the same time, this incurs a decrease of -5.9% in terms of the NDCG of customer preferences.
+
+The paper also uses the following formula to calculate the risk and reward to further evaluate the new objective function:
+
+$$ Risk = \frac{1}{|q|} \sum_q NDCG@10(LRR) < NDCG@10(Baseline)$$
+$$ Reward = \frac{1}{|q|} \sum_q NDCG@10(LRR) > NDCG@10(Baseline)$$
+
+They have found that the risk is lower than the baseline and the reward much higher. 
+
+This experiment shows that multi-objective is always a trade-off between the two objectives: Conversion rate vs Margin. They would like to further test with real-world performance via $A/B$ testing.
+
+### Joint Optimization of Profit and Relevance for Recommendation Systems in E-commerce
+
+:::{.callout-tip appearance="minimal"}
+
+Read the Original Paper over here: [Original Paper](http://ceur-ws.org/Vol-2440/short1.pdf)
+
+::: 
+
+Traditionally, e-commerce-based recommendation systems focus on optimizing for relevance by predicting the purchase or click probability of an item. The relevance-centric approach is capable to increased the conversion rate but does not guarantee a maximum profit for either a platform or seller. In this paper from Etsy, where they discussed a novel revenue model, which optimizes for two objectives: 
+
+1. Maximising the Revenue
+2. The probability of the purchase. 
+
+To maximize the likelihood, the objective function is defined as follows:
+
+$$\max_{w \in R^n, b \in R} l(w,b) := - \sum_{i=1}^{m} \log(1 + exp(-y_i(w^T x_i + b)))$$
+
+Here, $x_i$ = $i^{th}$ training sample $x_i \in R^n$
+$y_i$ = label whether a recommended item is purchased or not
+
+Let's say $\pi_i$ is the price of item, then the objective function for maximizing profit is as below:
+
+$$ρ(w,b) := \sum_{i=1}^{m} E[\pi_i, y_i] = \sum_{i=1}^{m} \pi_i (2prob[y_i = 1|x_i;w] - 1)$$
+$$= \sum_{i=1}^{m} 2\pi_i\sigma(w^T x_i + b) - \pi_i,$$
+
+The combined objective function will be:
+
+$$\max_{w\in R^n, b\in R } l(w,b) + \mu ρ(w,b)$$
+
+To optimise the above objective, $(w,b)$ parameters need to be found which can fit $l(w,b)$ to maximise the likelihood while maximizing the expected revenue (via $ρ(w, b)$). Here, $\mu ≥ 0$ is a hyperparameter of the model that controls the tradeoff between the two objectives. Once the optimal parameters are learned, they use them to rank a set of candidate items.
+
+They have used the following metrics to evaluate the performance of the proposed model
+
+1. Profit@K: profit generate by kth highest ranked item
+2. Average price: Average price of the k highest ranked item
+3. AUC: to measure relevance
+4. NDCG@5
+
+Etsy has done an offline evaluation of the proposed model. They found the proposed revenue model attains the highest AUC and profit@k for all K values. Note they used K value up to 3. They observe that the revenue model has a 3.57% increase in AUC and 9.50% in profit@1 compared to the baseline model. Also increases P-NDCG@k and AP@k for all k by at least 3.57% and 23.08%  However, the proposed model results in a 10.76% and 16.06% decrease in AUC compared to the baseline. 
+
+The overall revenue model can increase profit for the platform while retaining high relevancy for users. They would like to assess revenue model performance in the face of real user traffic via an online A/B experiment.
+
+### Using Bayesian optimization for balancing metrics in recommendation systems
+
+:::{.callout-tip appearance="minimal"}
+
+Read the Original article over here: [Original Article](https://engineering.linkedin.com/blog/2022/using-bayesian-optimization-for-balancing-metrics-in-recommendat)
+
+::: 
+
+Let's now look into an article from Linkedin where they describe their approach towards building their notifications recommendation system, which notifies members about various activities within their network. To build an efficient notification system, they are optimizing for the following objects:
+
+1. CTR
+2. Number of sessions (i.e the user visits & app open rate)
+
+The CTR and session objectives can be conflicting, because sending more notifications to members may lead them to visit an app frequently. And It increases the overall number of sessions but on the other side, it can decrease CTR because of the quality of the notification.
+
+The overall objective function they define is as follows:
+
+$$p_{click} + \alpha * \Delta p_{visit} > \gamma$$
+
+where,
+
+1. $p_{click}$ is the probability of click by member
+2. $\Delta p_{visit}$ can be defined as $p(\frac{visit}{sent})$ - $p(\frac{visit}{not sent})$. Which is basically the difference between sending a notification now vs not sending a notification.
+3. $\alpha$ is the hyperparameter that measures the relative importance of the two utilities.
+4. $\gamma$ is the threshold applied.
+
+Finding an optimal value of $x=\{\alpha,\gamma\}$ can maximize the sessions without compromising on CTR and send volume. To ensure the overall performance, they used $c1$ and $c2$ constraints as contained for CTR(x), and Send Volume(x).
+
+The updated objective function looks like the below:
+
+$$ \max_{\forall x_i} , f_{session}(x)$$
+Such that, $$f_{CTR}(x) > c_1, f_{sentVolume} (x) < c_2$$
+
+Using the above constraints, they define a single objective function as below:
+
+$$\max_x f(x) = f_{session}(x) + \lambda(1 \{f_{CTR}(x) > c_1 \} + 1\{f_{sentVolume(x)} < c_2\}),$$
+
+By converting a MOO into SOO using constrained-based optimization, they learn global hyperparameters (i.e., a single value) for all members. Further, they evaluate and improve upon this via online A/B experiments.
+
+# Conclusion 
+
+In this rather long post, we looked into common design patterns for building modern recommendation systems, Common styles of training ranking models & Popular metrics for evaluating these systems and also looked at the task of multiple objective optimizations and their application within Learning to rank. We also looked at a few examples of multi-objective ranking from the industry - and one common trend that we observed is that simple techniques like label aggregation, model aggregation, or constrained optimization work surprisingly well in practice. 
