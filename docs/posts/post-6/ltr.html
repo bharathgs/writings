@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,15 +13,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 </style>
 
 
@@ -77,11 +72,9 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">writings</span>
-    </a>
-  </div>
+  </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -169,7 +162,7 @@ ul.task-list li input[type="checkbox"] {
 <table class="table">
 <colgroup>
 <col style="width: 25%">
-<col style="width: 23%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -210,10 +203,10 @@ ul.task-list li input[type="checkbox"] {
 <p>What do we have as of now:</p>
 <table class="table">
 <colgroup>
-<col style="width: 10%">
+<col style="width: 11%">
+<col style="width: 33%">
 <col style="width: 32%">
-<col style="width: 31%">
-<col style="width: 21%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -254,7 +247,8 @@ Basic Concepts - Defining the MOO Problem, Pareto Optimum &amp; Pareto Frontier
 <div class="callout-body-container callout-body">
 <p><strong>MOO</strong>: Optimization that involves identifying the values of decision (or free) variables that generate the maximum or minimum of one or more objectives. In most engineering problems, there may exist multiple, conflicting objectives and solving the optimization problems is not trivial or may not be even feasible sometimes. One way to formulate this is as follows:</p>
 <p>Given <span class="math inline">\(m\)</span> inequality constraints &amp; <span class="math inline">\(p\)</span> equality constraints identify a vector <span class="math inline">\(\bar{x}^*_n = [x^*_1, x^*_2,...,x^*_n]^T\)</span> that optimizes</p>
-<p><span class="math display">\[\bar{f}_k(\bar{x}_n) = [o_1(\bar{x}_n), o_2(\bar{x}_n),..., o_k(\bar{x}_n)]^T\]</span> such that</p>
+<p><span class="math display">\[\bar{f}_k(\bar{x}_n) = [o_1(\bar{x}_n), o_2(\bar{x}_n),..., o_k(\bar{x}_n)]^T\]</span></p>
+<p>such that</p>
 <p><span class="math display">\[g_i(\bar{x}_n) ≥ 0, i = 1, 2, . . . , m\]</span></p>
 <p><span class="math display">\[h_i( \bar{x}_n) = 0, i = 1, 2, . . . , p\]</span></p>
 <p>where <span class="math inline">\(\bar{x}_n = [x_1, x_2, . . . , x_n]^T\)</span> is a vector of <span class="math inline">\(n\)</span> decision variables. The constraints determine the “feasible region” <span class="math inline">\(F\)</span> and any point <span class="math inline">\(\bar{x}_n ∈ F\)</span> gives a “feasible solution” where <span class="math inline">\(g_i( \bar{x}_n)\)</span> and <span class="math inline">\(h_i( \bar{x}_n)\)</span> are the constraints imposed on decision variables. The vector function <span class="math inline">\(\bar{f}_k(\bar{x}_n)\)</span> above is a set of <span class="math inline">\(k\)</span> objective functions, <span class="math inline">\(o_i(\bar{x}_n)\)</span> for <span class="math inline">\(i = 1, · · · , k\)</span>, representing k non-commensurable criteria.</p>
@@ -342,8 +336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,15 +13,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 </style>
 
 
@@ -77,11 +72,9 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">writings</span>
-    </a>
-  </div>
+  </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -195,7 +188,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Here, <span class="math inline">\(K^{'}(u, u^{'})\)</span> is playing the role of a similarity-based regularizer with the original ranking order u being the reference point to the new ranking order <span class="math inline">\(u^{′}\)</span>. The hyperparameter <span class="math inline">\(\gamma\)</span> gives the balance between our objective function.</p>
 <p>To evaluate the LTR method, they use an in-house Expedia dataset built from worldwide hotel searches collected during 2016. The new ranking methods give a lift of +16.7% on the NDCG of margin, but at the same time, this incurs a decrease of -5.9% in terms of the NDCG of customer preferences.</p>
 <p>The paper also uses the following formula to calculate the risk and reward to further evaluate the new objective function:</p>
-<p><span class="math display">\[ Risk = \frac{1}{|q|} \sum_q NDCG@10(LRR) &lt; NDCG@10(Baseline)\]</span> <span class="math display">\[ Reward = \frac{1}{|q|} \sum_q NDCG@10(LRR) &gt; NDCG@10(Baseline)\]</span></p>
+<p><span class="math display">\[ Risk = \frac{1}{|q|} \sum_q NDCG@10(LRR) &lt; NDCG@10(Baseline)\]</span></p>
+<p><span class="math display">\[ Reward = \frac{1}{|q|} \sum_q NDCG@10(LRR) &gt; NDCG@10(Baseline)\]</span></p>
 <p>They have found that the risk is lower than the baseline and the reward much higher.</p>
 <p>This experiment shows that multi-objective is always a trade-off between the two objectives: Conversion rate vs Margin. They would like to further test with real-world performance via <span class="math inline">\(A/B\)</span> testing.</p>
 </section>
@@ -220,7 +214,8 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math display">\[\max_{w \in R^n, b \in R} l(w,b) := - \sum_{i=1}^{m} \log(1 + exp(-y_i(w^T x_i + b)))\]</span></p>
 <p>Here, <span class="math inline">\(x_i\)</span> = <span class="math inline">\(i^{th}\)</span> training sample <span class="math inline">\(x_i \in R^n\)</span> <span class="math inline">\(y_i\)</span> = label whether a recommended item is purchased or not</p>
 <p>Let’s say <span class="math inline">\(\pi_i\)</span> is the price of item, then the objective function for maximizing profit is as below:</p>
-<p><span class="math display">\[ρ(w,b) := \sum_{i=1}^{m} E[\pi_i, y_i] = \sum_{i=1}^{m} \pi_i (2prob[y_i = 1|x_i;w] - 1)\]</span> <span class="math display">\[= \sum_{i=1}^{m} 2\pi_i\sigma(w^T x_i + b) - \pi_i,\]</span></p>
+<p><span class="math display">\[ρ(w,b) := \sum_{i=1}^{m} E[\pi_i, y_i] = \sum_{i=1}^{m} \pi_i (2prob[y_i = 1|x_i;w] - 1)\]</span></p>
+<p><span class="math display">\[= \sum_{i=1}^{m} 2\pi_i\sigma(w^T x_i + b) - \pi_i,\]</span></p>
 <p>The combined objective function will be:</p>
 <p><span class="math display">\[\max_{w\in R^n, b\in R } l(w,b) + \mu ρ(w,b)\]</span></p>
 <p>To optimise the above objective, <span class="math inline">\((w,b)\)</span> parameters need to be found which can fit <span class="math inline">\(l(w,b)\)</span> to maximise the likelihood while maximizing the expected revenue (via <span class="math inline">\(ρ(w, b)\)</span>). Here, <span class="math inline">\(\mu ≥ 0\)</span> is a hyperparameter of the model that controls the tradeoff between the two objectives. Once the optimal parameters are learned, they use them to rank a set of candidate items.</p>
@@ -263,7 +258,8 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <p>Finding an optimal value of <span class="math inline">\(x=\{\alpha,\gamma\}\)</span> can maximize the sessions without compromising on CTR and send volume. To ensure the overall performance, they used <span class="math inline">\(c1\)</span> and <span class="math inline">\(c2\)</span> constraints as contained for CTR(x), and Send Volume(x).</p>
 <p>The updated objective function looks like the below:</p>
-<p><span class="math display">\[ \max_{\forall x_i} , f_{session}(x)\]</span> Such that, <span class="math display">\[f_{CTR}(x) &gt; c_1, f_{sentVolume} (x) &lt; c_2\]</span></p>
+<p><span class="math display">\[ \max_{\forall x_i} , f_{session}(x)\]</span></p>
+<p>Such that, <span class="math display">\[f_{CTR}(x) &gt; c_1, f_{sentVolume} (x) &lt; c_2\]</span></p>
 <p>Using the above constraints, they define a single objective function as below:</p>
 <p><span class="math display">\[\max_x f(x) = f_{session}(x) + \lambda(1 \{f_{CTR}(x) &gt; c_1 \} + 1\{f_{sentVolume(x)} &lt; c_2\}),\]</span></p>
 <p>By converting a MOO into SOO using constrained-based optimization, they learn global hyperparameters (i.e., a single value) for all members. Further, they evaluate and improve upon this via online A/B experiments.</p>
@@ -346,8 +342,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

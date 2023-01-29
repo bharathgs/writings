@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,15 +13,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 </style>
 
 
@@ -77,11 +72,9 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">writings</span>
-    </a>
-  </div>
+  </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -197,7 +190,10 @@ ul.task-list li input[type="checkbox"] {
 <p>In general, binary metrics only consider relevant &amp; irrelevant items, while graded metrics consider the ranking among relevant items. The degree of relevancy matters in this case when scoring a list of items.</p>
 <section id="mean-average-precision-map" class="level2">
 <h2 class="anchored" data-anchor-id="mean-average-precision-map">Mean Average Precision (MAP)</h2>
-<p>MAP is a measure based on binary label of relevancy. To compute this first we define precision at k for a given query <span class="math inline">\(P@k(q)\)</span> as: <span class="math display">\[P@k(q) \equiv \frac{\sum_{i=1}^k r_i}{k}\]</span> for an ordered list of prediction <span class="math inline">\(r_i\)</span> for all <span class="math inline">\(k\)</span> items. <span class="math inline">\(ri=1\)</span> if it is relevant and 0 otherwise.Then we define the average precision given a query <span class="math inline">\(AP(q)\)</span> at <span class="math inline">\(k\)</span> items as: <span class="math display">\[AP(q)@k \equiv \frac{1}{\sum_{i=1}^k r_i} \sum_{i=1}^k P@i(q) \times r_i\]</span></p>
+<p>MAP is a measure based on binary label of relevancy. To compute this first we define precision at k for a given query <span class="math inline">\(P@k(q)\)</span> as:</p>
+<p><span class="math display">\[P@k(q) \equiv \frac{\sum_{i=1}^k r_i}{k}\]</span></p>
+<p>for an ordered list of prediction <span class="math inline">\(r_i\)</span> for all <span class="math inline">\(k\)</span> items. <span class="math inline">\(ri=1\)</span> if it is relevant and 0 otherwise.Then we define the average precision given a query <span class="math inline">\(AP(q)\)</span> at <span class="math inline">\(k\)</span> items as:</p>
+<p><span class="math display">\[AP(q)@k \equiv \frac{1}{\sum_{i=1}^k r_i} \sum_{i=1}^k P@i(q) \times r_i\]</span></p>
 <p>Mean Average Precision is just the mean of <span class="math inline">\(AP(q)\)</span> for all queries:</p>
 <p><span class="math display">\[MAP \equiv \frac{\sum_{q=1}^Q AP(q)}{Q}\]</span></p>
 <p>Also, MAP is an order sensitive metric because of the term <span class="math inline">\(r_i\)</span> in the calculation of AP. It is essentially taking the average of precision at each ranking position and penalizing the precision at positions with irrelevant item by strcitly setting them to zeroes.</p>
@@ -311,8 +307,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

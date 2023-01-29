@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,15 +13,10 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
-ul.task-list li input[type="checkbox"] {
-  width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
-  vertical-align: middle;
-}
 </style>
 
 
@@ -77,11 +72,9 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-sm navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+      <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">writings</span>
-    </a>
-  </div>
+  </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -163,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="a-quick-recap-on-modern-recsys" class="level1">
 <h1>A Quick Recap on modern recsys</h1>
-<p>Add brief inyro about modern system here.</p>
+<p>Add brief intro about modern system here.</p>
 <p><img src="assets/recsys-wn.png" class="img-fluid"></p>
 <p>Over the past few years, a common and central design pattern has emerged around how most industrial recommendation systems are designed. If one were to summarise this design pattern, it would appear as described in the above figure - consisting of 4 stages. Let us take a brief look at the functionality of these four stages:</p>
 <section id="candidate-retrieval" class="level2">
@@ -257,38 +250,46 @@ ul.task-list li input[type="checkbox"] {
 <p>With that brief introduction out of the way, let’s also quickly look at the advantages and disadvantages of each of these approaches:</p>
 <table class="table">
 <colgroup>
-<col style="width: 6%">
-<col style="width: 29%">
-<col style="width: 63%">
+<col style="width: 11%">
+<col style="width: 47%">
+<col style="width: 41%">
 </colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td rowspan="2"><h1 id="method">Method</h1>
-<p>Pointwise</p></td>
-<td rowspan="2"><h1 id="advantages">Advantages</h1>
-<ul>
+<td>Pointwise</td>
+<td><ul>
 <li>Simplicity, Any standard ML models can be applied without any changes.</li>
 </ul></td>
-<td rowspan="2">Disadvantages | ====================================+ - The results can be often sub-optimal due to not utilizing the full information of the | entire list of matching documents for each query.| - This requires explicit labels while constructing the dataset, and can be quite expensive.</td>
+<td><ul>
+<li>The results can be often sub-optimal due to not utilizing the full information of the entire list of matching documents for each query.</li>
+<li>This requires explicit labels while constructing the dataset, and can be quite expensive.</li>
+</ul></td>
 </tr>
 <tr class="even">
-</tr>
-<tr class="odd">
 <td>Pairwise</td>
 <td><ul>
 <li>We don’t need explicit labels, Only pairwise preferences are required.</li>
 <li>The model learns how to rank directly, even though its a pairwise setting, but in theory it can approximate the performance of a general ranking task.</li>
 </ul></td>
-<td></td>
+<td><ul>
+<li>The Core Scoring mechanism is still pointwise. Hence, that relative information in the feature space among different documents given the same query is still not fully leveraged.</li>
+</ul></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Listwise</td>
 <td><ul>
 <li>Theoretically this is a good solution for a ranking task.</li>
 </ul></td>
 <td><ul>
-<li>Costly to compute in its theoretical form and | hence several approximations are used in practice.|</li>
-<li>Scoring function is still pointwise, | which could be sub-optimal. |</li>
+<li>Costly to compute in its theoretical form and hence several approximations are used in practice.</li>
+<li>Scoring function is still pointwise, which could be sub-optimal.</li>
 </ul></td>
 </tr>
 </tbody>
@@ -368,8 +369,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      let href = ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
